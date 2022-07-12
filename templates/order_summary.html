@@ -42,7 +42,21 @@
             <tr>
                 <td colspan='5'> Your cart is empty </td>
             </tr>
-            {% endfor %}  
+            <tr>
+              <td colspan="5">
+                  <a class='btn btn-primary float-right ' href='/'>Countinue to shopping</a>
+
+              </td>
+              
+            </tr>
+            {% endfor %} 
+            {% if object.coupon %}
+            <tr>
+              <td colspan="4">Coupon</td>
+              <td>-{{ object.coupon.amount }}$</td>
+            </tr>
+            {% endif %} 
+            {% if object.get_total %}
             <tr>
                 <td colspan="4">Order total</td>
                 <td>{{ object.get_total}}$</td>
@@ -56,7 +70,7 @@
                 
             </tr>
             
-            
+            {% endif %}
           </tbody>
         </table>
       
